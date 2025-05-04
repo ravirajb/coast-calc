@@ -1,4 +1,38 @@
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+        .then(registration => {
+            console.log('ServiceWorker registration successful');
+        })
+        .catch(err => {
+            console.log('ServiceWorker registration failed: ', err);
+        });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Ensure Chart.js is loaded before initializing
+    if (typeof Chart === 'undefined') {
+        window.Chart = window.Chart || {};
+    }
+
+    // Initialize Chart.js after DOM is loaded
+    const initializeChart = () => {
+        if (typeof Chart !== 'undefined') {
+            // Your existing chart initialization code here
+        }
+    };
+
+    // Check if Chart.js is loaded
+    if (typeof Chart !== 'undefined') {
+        initializeChart();
+    } else {
+        // Wait for Chart.js to load
+        const checkChartLoaded = setInterval(() => {
+            if (typeof Chart !== 'undefined') {
+                clearInterval(checkChartLoaded);
+                initializeChart();
+            }
+        }, 100);
+    }
     const calculateBtn = document.getElementById('calculateBtn');
     const resultsSection = document.getElementById('results');
     const coastFireNumber = document.getElementById('coastFireNumber');
@@ -6,8 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const portfolioValues = document.getElementById('portfolioValues');
     const growthChart = document.getElementById('growthChart');
     const currencySelect = document.getElementById('currency');
+    window.Chart = window.Chart || {}; // Ensure Chart is available globally
 
-
+// Initialize Chart.js
+if (typeof Chart === 'undefined') {
+    Chart = window.Chart;
+}
 
     // Update currency display (placeholder function)
     function updateCurrencyDisplay() {
