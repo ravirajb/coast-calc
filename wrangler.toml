@@ -39,10 +39,18 @@ main = "static/index.html"
     "Pragma: public"
   ]
   "/chart-config.json" = [
-    "Cache-Control: max-age=31536000, public, immutable",
+    "Cache-Control: max-age-31536000, public, immutable",
     "Pragma: public"
   ]
   "/ads.txt" = [
-    "Cache-Control: max-age=31536000, public, immutable",
+    "Cache-Control: max-age-31536000, public, immutable",
+    "Pragma: public"
+  ]
+  "/ga4-config.js" = [
+    "Cache-Control: max-age-31536000, public, immutable",
+    "Pragma: public"
+  ]
+  "/ga4-tracking.js" = [
+    "Cache-Control: max-age-31536000, public, immutable",
     "Pragma: public"
   ]
