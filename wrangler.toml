@@ -8,6 +8,7 @@ main = "static/index.html"
 
 [site]
   bucket = "static"
+  entry-point = "static"
 
 [env.production]
   name = "coast-fire-calculator-production"
@@ -16,4 +17,4 @@ main = "static/index.html"
 
 [build.upload]
   main = "static/index.html"
-
+  format = "service-worker"
