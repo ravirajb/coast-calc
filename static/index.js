@@ -9,6 +9,21 @@ if ('serviceWorker' in navigator) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Ensure Chart.js is loaded
+    if (typeof Chart === 'undefined') {
+        console.error('Chart.js not loaded');
+        return;
+    }
+
+    // Initialize Chart.js
+    Chart.register();
+
+    const calculateBtn = document.getElementById('calculateBtn');
+    const resultsSection = document.getElementById('results');
+    const coastFireNumber = document.getElementById('coastFireNumber');
+    const coastFireAge = document.getElementById('coastFireAge');
+    const portfolioValues = document.getElementById('portfolioValues');
+    const growthChart = document.getElementById('growthChart');
     // Ensure Chart.js is loaded before initializing
     if (typeof Chart === 'undefined') {
         window.Chart = window.Chart || {};
@@ -33,19 +48,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, 100);
     }
-    const calculateBtn = document.getElementById('calculateBtn');
-    const resultsSection = document.getElementById('results');
-    const coastFireNumber = document.getElementById('coastFireNumber');
-    const coastFireAge = document.getElementById('coastFireAge');
-    const portfolioValues = document.getElementById('portfolioValues');
-    const growthChart = document.getElementById('growthChart');
+
     const currencySelect = document.getElementById('currency');
     window.Chart = window.Chart || {}; // Ensure Chart is available globally
 
-// Initialize Chart.js
-if (typeof Chart === 'undefined') {
+    // Initialize Chart.js
+    if (typeof Chart === 'undefined') {
+        Chart = window.Chart;
+    }
     Chart = window.Chart;
-}
+});
 
     // Update currency display (placeholder function)
     function updateCurrencyDisplay() {
@@ -395,5 +407,16 @@ if (typeof Chart === 'undefined') {
                 }
             }
         });
+}
+
+// Initialize the chart when the page loads
+initializeChart();
+
+// Initialize the chart when the configuration changes
+function updateGrowthChart(data, config) {
+    if (growthChart) {
+        growthChart.data.labels = Array.from({ length: config.years }, (_, i) => i + 1);
+        growthChart.data.datasets[0].data = data;
+        growthChart.update();
     }
-});
+}
