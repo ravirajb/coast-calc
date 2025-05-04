@@ -2,12 +2,8 @@ name = "coast-fire-calculator"
 type = "static"
 
 [build]
-  command = "npm run build"
+  command = "echo 'No build needed for static site'"
   environment = "production"
-
-[build.upload]
-  format = "service-worker"
-  main = "index.html"
 
 [site]
   bucket = "static"
