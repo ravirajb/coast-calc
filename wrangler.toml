@@ -42,3 +42,7 @@ main = "static/index.html"
     "Cache-Control: max-age=31536000, public, immutable",
     "Pragma: public"
   ]
+  "/ads.txt" = [
+    "Cache-Control: max-age=31536000, public, immutable",
+    "Pragma: public"
+  ]
