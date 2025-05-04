@@ -1,5 +1,6 @@
 name = "coast-fire-calculator"
 type = "static"
+main = "static/index.html"
 
 [build]
   command = "echo 'No build needed for static site'"
