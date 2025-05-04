@@ -2,6 +2,7 @@
     "name": "coast-fire-calculator",
     "version": "1.0.0",
     "scripts": {
+        "build": "echo 'Static site - no build needed'",
         "deploy": "wrangler pages deploy"
     },
     "engines": {
