@@ -18,12 +18,83 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Chart.js
     Chart.register();
 
+    // Get DOM elements
     const calculateBtn = document.getElementById('calculateBtn');
-    const resultsSection = document.getElementById('results');
-    const coastFireNumber = document.getElementById('coastFireNumber');
-    const coastFireAge = document.getElementById('coastFireAge');
-    const portfolioValues = document.getElementById('portfolioValues');
-    const growthChart = document.getElementById('growthChart');
+    // Initialize the chart
+    let growthChartInstance = null;
+
+    function initializeChart() {
+        if (growthChart && growthChart.getContext) {
+            const ctx = growthChart.getContext('2d');
+            if (ctx) {
+                growthChartInstance = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: [],
+                        datasets: [{
+                            label: 'Portfolio Growth',
+                            data: [],
+                            borderColor: '#1d4ed8',
+                            tension: 0.1,
+                            fill: true,
+                            backgroundColor: 'rgba(29, 78, 216, 0.1)',
+                            borderWidth: 2,
+                            pointRadius: 4,
+                            pointHoverRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        return formatCurrency(value);
+                                    },
+                                    font: {
+                                        size: 12,
+                                        weight: '500'
+                                    }
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    font: {
+                                        size: 12,
+                                        weight: '500'
+                                    }
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: {
+                                    font: {
+                                        size: 12,
+                                        weight: '500'
+                                    }
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Portfolio Growth Over Time',
+                                font: {
+                                    size: 16,
+                                    weight: '600'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+    // Initialize the chart when the page loads
+    initializeChart();
     // Ensure Chart.js is loaded before initializing
     if (typeof Chart === 'undefined') {
         window.Chart = window.Chart || {};
@@ -414,9 +485,9 @@ initializeChart();
 
 // Initialize the chart when the configuration changes
 function updateGrowthChart(data, config) {
-    if (growthChart) {
-        growthChart.data.labels = Array.from({ length: config.years }, (_, i) => i + 1);
-        growthChart.data.datasets[0].data = data;
-        growthChart.update();
+    if (growthChartInstance) {
+        growthChartInstance.data.labels = Array.from({ length: config.years }, (_, i) => i + 1);
+        growthChartInstance.data.datasets[0].data = data;
+        growthChartInstance.update();
     }
 }
