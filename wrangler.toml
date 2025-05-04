@@ -16,3 +16,17 @@ main = "static/index.html"
 [build.upload]
   main = "static/index.html"
   format = "service-worker"
+
+[build.upload.headers]
+  "/static/*" = [
+    "Cache-Control: max-age=31536000, public, immutable",
+    "Pragma: public"
+  ]
+  "/fonts/*" = [
+    "Cache-Control: max-age=31536000, public, immutable",
+    "Pragma: public"
+  ]
+  "/chart.js" = [
+    "Cache-Control: max-age=31536000, public, immutable",
+    "Pragma: public"
+  ]
