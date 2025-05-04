@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your Coast FIRE number instantly with our free, easy-to-use calculator. Discover the savings goal that lets you stop contributing and still retire early. No signup needed, your data stays private.">
+    <meta name="keywords" content="Coast FIRE calculator, FIRE movement, retirement calculator, financial independence, early retirement, coasting to retirement, safe withdrawal rates, retirement planning">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Coast FIRE Quick Calc">
+    <meta name="copyright" content="© 2025 Coast FIRE Quick Calc">
+    <link rel="canonical" href="https://yourdomain.com/coast-fire-calculator">
+    <link rel="amphtml" href="https://yourdomain.com/coast-fire-calculator/amp.html">
+    <title>Coast FIRE Quick Calc: Calculate Your Financial Independence Number</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/coast-fire-calculator/">
+    <meta property="og:title" content="Coast FIRE Quick Calc: Calculate Your Financial Independence Number">
+    <meta property="og:description" content="Calculate your Coast FIRE number instantly with our free, easy-to-use calculator. Discover the savings goal that lets you stop contributing and still retire early.">
+    <meta property="og:image" content="https://yourdomain.com/images/coast-fire-calculator-preview.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourdomain.com/coast-fire-calculator/">
+    <meta property="twitter:title" content="Coast FIRE Quick Calc: Calculate Your Financial Independence Number">
+    <meta property="twitter:description" content="Calculate your Coast FIRE number instantly with our free, easy-to-use calculator. Discover the savings goal that lets you stop contributing and still retire early.">
+    <meta property="twitter:image" content="https://yourdomain.com/images/coast-fire-calculator-preview.jpg">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Coast FIRE Calculator",
+      "description": "Calculate your personal Coast FIRE number instantly with our free, easy-to-use calculator. Discover the savings goal that lets you stop contributing and still retire early.",
+      "url": "https://yourdomain.com/coast-fire-calculator",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://yourdomain.com/coast-fire-calculator"
+      },
+      "datePublished": "2025-05-04",
+      "dateModified": "2025-05-04"
+    }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Only load AdSense when not running locally
+        if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1326908877460922';
+            script.crossOrigin = 'anonymous';
+            document.head.appendChild(script);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Coast FIRE Calculator</h1>
+            <h2 class="subtitle">Calculate Your Financial Independence Number</h2>
+            <p class="description">Discover your Coast FIRE number - the amount you need to save today to reach financial independence through investment growth alone.</p>
+            <p class="privacy-note">No signup required • Your data is not stored</p>
+        </header>
+
+        <main>
+            <div class="calculator">
+                <div class="input-section">
+                    <div class="input-group">
+                        <label for="currency">Currency</label>
+                    <select id="currency" required>
+                        <option value="USD">US Dollar ($)</option>
+                        <option value="EUR">Euro (€)</option>
+                        <option value="GBP">British Pound (£)</option>
+                        <option value="CHF">Swiss Franc (CHF)</option>
+                        <option value="JPY">Japanese Yen (¥)</option>
+                        <option value="KRW">South Korean Won (₩)</option>
+                        <option value="AUD">Australian Dollar (A$)</option>
+                        <option value="ITL">Italian Lira (L)</option>
+                        <option value="DEM">German Mark (DM)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="currentAge" class="input-label">Current Age</label>
+                    <input type="number" id="currentAge" min="0" max="100" step="1" pattern="\d+" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="currentSavings" class="input-label">Current Retirement Savings</label>
+                    <input type="number" id="currentSavings" min="0" step="0.01" required>
+
+                </div>
+
+                <div class="input-group">
+                    <label for="preRetirementReturn" class="input-label">Expected Annual Rate of Return (Pre-Retirement
+                        %)</label>
+                    <input type="number" id="preRetirementReturn" min="0" max="100" step="0.1" required>
+
+                </div>
+
+                <div class="input-group">
+                    <label for="postRetirementReturn" class="input-label">Expected Annual Rate of Return
+                        (Post-Retirement %)</label>
+                    <input type="number" id="postRetirementReturn" min="0" max="100" step="0.1" required>
+
+                </div>
+
+                <div class="input-group">
+                    <label for="retirementAge" class="input-label">Planned Retirement Age</label>
+                    <input type="number" id="retirementAge" min="0" max="100" step="1" pattern="\d+" required>
+
+                </div>
+
+                <div class="input-group">
+                    <label for="annualSpending" class="input-label">Desired Annual Retirement Spending</label>
+                    <input type="number" id="annualSpending" min="0" step="0.01" required>
+
+                </div>
+
+                <div class="input-group">
+                    <label for="inflationRate" class="input-label">Assumed Annual Inflation Rate (%)</label>
+                    <input type="number" id="inflationRate" min="0" max="100" step="0.1" required>
+
+                </div>
+
+                <div class="withdrawal-rates">
+                    <h3>Withdrawal Rate</h3>
+                    <div class="rate-options">
+                        <div class="rate-option">
+                            <input type="radio" id="rate3" name="withdrawalRate" value="3">
+                            <label for="rate3">3%</label>
+                        </div>
+                        <div class="rate-option">
+                            <input type="radio" id="rate35" name="withdrawalRate" value="3.5">
+                            <label for="rate35">3.5%</label>
+                        </div>
+                        <div class="rate-option">
+                            <input type="radio" id="rate4" name="withdrawalRate" value="4" checked>
+                            <label for="rate4">4%</label>
+                        </div>
+                        <div class="rate-option">
+                            <input type="radio" id="rate45" name="withdrawalRate" value="4.5">
+                            <label for="rate45">4.5%</label>
+                        </div>
+                        <div class="rate-option">
+                            <input type="radio" id="rate5" name="withdrawalRate" value="5">
+                            <label for="rate5">5%</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button id="calculateBtn" class="calculate-button">Calculate</button>
+
+            <div class="results-section" id="results">
+                <div class="result-item">
+                    <h3>Coast FIRE Number</h3>
+                    <p id="coastFireNumber">$0</p>
+                    <div class="result-explanation">
+                        This is the amount of savings you need today to reach your retirement goal through investment growth
+                        alone. Once you hit this number, you can stop actively saving for retirement.
+                    </div>
+                </div>
+    
+                <div class="result-item">
+                    <h3>Age Coast FIRE is Reached</h3>
+                    <p id="coastFireAge">0</p>
+                    <div class="result-explanation">
+                        This is the age at which your current savings trajectory will reach the Coast FIRE number. After
+                        this age, your investments will grow to your full retirement target by your planned retirement age
+                        without additional contributions.
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="growthChart"></canvas>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="explanation">
+            <h2>What is Coast FIRE?</h2>
+            <p>Coast FIRE is a unique retirement strategy that allows you to stop actively saving for retirement while
+                still reaching your financial independence goal. Unlike traditional FIRE (Financial Independence, Retire
+                Early), where you need to save aggressively until your retirement date, Coast FIRE lets you coast to
+                your goal by relying on investment growth alone.</p>
+
+            <h3>How Coast FIRE Works</h3>
+            <p>The key concept behind Coast FIRE is that once you reach a certain savings threshold (your Coast FIRE
+                Number), your investments will grow to your full retirement target by your planned retirement age
+                without any additional contributions. This means you can:</p>
+            <ul>
+                <li>Stop actively saving for retirement</li>
+                <li>Let your existing investments grow through compound interest</li>
+                <li>Still reach your financial independence goal</li>
+            </ul>
+
+            <h3>Key Assumptions in the Calculation</h3>
+            <p>This calculator uses several important assumptions:</p>
+            <ul>
+                <li><strong>Rate of Return:</strong> The calculator allows you to input both pre-retirement and
+                    post-retirement expected returns. Pre-retirement rates are typically higher due to more aggressive
+                    investment strategies, while post-retirement rates are more conservative.</li>
+                <li><strong>Safe Withdrawal Rate:</strong> The calculator lets you test different withdrawal rates
+                    (typically 3-5%) to see how they affect your required savings. A higher withdrawal rate means you
+                    need a larger portfolio to maintain the same annual spending in retirement.</li>
+                <li><strong>Inflation:</strong> Inflation is a critical factor as it affects both your future spending
+                    needs and the growth of your investments. The calculator allows you to input your expected inflation
+                    rate to account for this.</li>
+            </ul>
+
+            <h3>How to Use the Results</h3>
+            <p>Once you've calculated your Coast FIRE Number, you'll receive several important pieces of information:
+            </p>
+            <ul>
+                <li><strong>Coast FIRE Number:</strong> This is the amount of savings you need today to reach your
+                    retirement goal through investment growth alone.</li>
+                <li><strong>Age Coast FIRE is Reached:</strong> This shows when your current savings trajectory will
+                    reach the Coast FIRE number. After this age, your investments will grow to your full retirement
+                    target by your planned retirement age without additional contributions.</li>
+                <li><strong>Projected Portfolio Value:</strong> The calculator shows how large your retirement portfolio
+                    will be at your planned retirement age for different withdrawal rates. This helps you understand the
+                    trade-offs between withdrawal rate and required savings.</li>
+            </ul>
+
+            <h3>Important Considerations</h3>
+            <p>While this calculator provides valuable insights, remember that it's based on assumptions and
+                projections. Actual results may vary based on:</p>
+            <ul>
+                <li>Market performance</li>
+                <li>Changes in your personal circumstances</li>
+                <li>Economic conditions</li>
+                <li>Tax implications</li>
+            </ul>
+
+            <h3>FAQ</h3>
+            <div class="faq">
+                <h4>What if I want to retire earlier than planned?</h4>
+                <p>If you want to retire earlier, you'll need to either increase your current savings rate or adjust
+                    your expected retirement spending to reach your Coast FIRE Number sooner.</p>
+
+                <h4>Can I still contribute to my retirement savings after reaching my Coast FIRE Number?</h4>
+                <p>Yes, you can! While you don't <em>need</em> to contribute anymore, additional contributions will help
+                    build a larger retirement portfolio and provide more financial security.</p>
+
+                <h4>How does inflation affect my Coast FIRE Number?</h4>
+                <p>Inflation is a crucial factor because it affects both your future spending needs and the growth of
+                    your investments. The calculator allows you to input your expected inflation rate to account for
+                    this.</p>
+
+                <h4>What if market returns are lower than expected?</h4>
+                <p>Lower than expected returns will increase your Coast FIRE Number. It's important to be conservative
+                    with your rate of return assumptions to ensure you reach your goal.</p>
+            </div>
+        </div>
+
+        <div class="result-item">
+            <h3>Projected Retirement Portfolio Value</h3>
+            <div id="portfolioValues"></div>
+            <div class="result-explanation">
+                These values show the estimated size of your retirement portfolio at your planned retirement age for
+                each withdrawal rate you've tested. Higher withdrawal rates require larger portfolios to maintain the
+                same annual spending.
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 Coast FIRE Quick Calc. All rights reserved.</p>
+        </footer>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="script.js"></script>
+</body>
+
+</html>

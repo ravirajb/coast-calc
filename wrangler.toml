@@ -1,0 +1,19 @@
+name = "coast-fire-calculator"
+type = "static"
+
+[build]
+  command = "npm run build"
+  environment = "production"
+
+[build.upload]
+  format = "service-worker"
+  main = "index.html"
+
+[site]
+  bucket = "static"
+  entry-point = "static"
+
+[env.production]
+  name = "coast-fire-calculator-production"
+  workers_dev = false
+  route = "your-domain.com/*"
