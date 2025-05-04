@@ -48,16 +48,8 @@
     }
     </script>
     <link rel="stylesheet" href="styles.css">
-    <script>
-        // Only load AdSense when not running locally
-        if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
-            var script = document.createElement('script');
-            script.async = true;
-            script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1326908877460922';
-            script.crossOrigin = 'anonymous';
-            document.head.appendChild(script);
-        }
-    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1326908877460922"
+     crossorigin="anonymous"></script>
 </head>
 
 <body>
