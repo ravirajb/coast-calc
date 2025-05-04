@@ -1,0 +1,64 @@
+{
+    "chart": {
+        "type": "line",
+        "data": {
+            "labels": [],
+            "datasets": [{
+                "label": "Portfolio Growth",
+                "data": [],
+                "borderColor": "#1d4ed8",
+                "tension": 0.1,
+                "fill": true,
+                "backgroundColor": "rgba(29, 78, 216, 0.1)",
+                "borderWidth": 2,
+                "pointRadius": 4,
+                "pointHoverRadius": 6
+            }]
+        },
+        "options": {
+            "responsive": true,
+            "maintainAspectRatio": false,
+            "scales": {
+                "y": {
+                    "beginAtZero": true,
+                    "ticks": {
+                        "callback": function(value) {
+                            return formatCurrency(value);
+                        },
+                        "font": {
+                            "size": 12,
+                            "weight": "500"
+                        }
+                    }
+                },
+                "x": {
+                    "ticks": {
+                        "font": {
+                            "size": 12,
+                            "weight": "500"
+                        }
+                    }
+                }
+            },
+            "plugins": {
+                "legend": {
+                    "position": "top",
+                    "labels": {
+                        "font": {
+                            "size": 12,
+                            "weight": "500"
+                        }
+                    }
+                },
+                "title": {
+                    "display": true,
+                    "text": "Portfolio Growth Over Time",
+                    "font": {
+                        "size": 16,
+                        "weight": "600"
+                    }
+                }
+            }
+        }
+    }
+}

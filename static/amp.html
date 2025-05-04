@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html ⚡>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
+    <script async custom-element="amp-chart" src="https://cdn.ampproject.org/v0/amp-chart-0.1.js"></script>
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    <link rel="canonical" href="https://your-domain.com/">
+    <meta name="description" content="Calculate your Coast FIRE number and see how your portfolio grows over time">
+    <title>Coast FIRE Calculator</title>
+    <style amp-custom>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #475569;
+            --background-color: #f8fafc;
+            --card-background: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --border-color: #e2e8f0;
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            background-color: var(--background-color);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .calculator-form {
+            background-color: var(--card-background);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-label {
+            display: block;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            background-color: var(--card-background);
+            color: var(--text-primary);
+            transition: border-color 0.2s ease;
+        }
+
+        .calculate-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1.125rem;
+            font-weight: 500;
+            cursor: pointer;
+            width: 100%;
+            max-width: 300px;
+            margin: 1rem auto;
+            display: block;
+        }
+
+        .results-section {
+            background-color: var(--card-background);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .result-item {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .result-item h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .portfolio-value {
+            margin-bottom: 1.5rem;
+        }
+
+        .portfolio-value h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .portfolio-value p {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .chart-container {
+            margin-top: 2.5rem;
+            height: 400px;
+            background-color: var(--card-background);
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Coast FIRE Calculator</h1>
+            <p class="subtitle">Calculate your Coast FIRE number and see how your portfolio grows over time</p>
+        </header>
+
+        <div class="calculator-form">
+            <div class="input-group">
+                <label class="input-label" for="monthlyContribution">Monthly Contribution</label>
+                <input type="number" id="monthlyContribution" name="monthlyContribution" required>
+            </div>
+
+            <div class="input-group">
+                <label class="input-label" for="currentAge">Current Age</label>
+                <input type="number" id="currentAge" name="currentAge" required>
+            </div>
+
+            <div class="input-group">
+                <label class="input-label" for="desiredAge">Desired Age</label>
+                <input type="number" id="desiredAge" name="desiredAge" required>
+            </div>
+
+            <div class="input-group">
+                <label class="input-label" for="monthlyExpenses">Monthly Expenses</label>
+                <input type="number" id="monthlyExpenses" name="monthlyExpenses" required>
+            </div>
+
+            <div class="input-group">
+                <label class="input-label" for="expectedReturn">Expected Return Rate</label>
+                <select id="expectedReturn" name="expectedReturn" required>
+                    <option value="0.04">4%</option>
+                    <option value="0.05">5%</option>
+                    <option value="0.06">6%</option>
+                    <option value="0.07">7%</option>
+                    <option value="0.08">8%</option>
+                </select>
+            </div>
+
+            <button class="calculate-button">Calculate</button>
+        </div>
+
+        <div class="results-section" hidden>
+            <div class="result-item">
+                <h3>Coast FIRE Number</h3>
+                <div id="coastFireNumber"></div>
+            </div>
+
+            <div class="result-item">
+                <h3>Age to Reach Coast FIRE</h3>
+                <div id="coastFireAge"></div>
+            </div>
+
+            <div class="portfolio-value">
+                <h4>Portfolio Value at Coast FIRE</h4>
+                <p id="portfolioValue"></p>
+            </div>
+
+            <div class="chart-container">
+                <amp-chart width="400" height="400" layout="responsive" config="chart-config.json">
+                </amp-chart>
+            </div>
+        </div>
+    </div>
+
+    <amp-script layout="container" src="amp.js">
+    </amp-script>
+</body>
+</html>

@@ -30,3 +30,15 @@ main = "static/index.html"
     "Cache-Control: max-age=31536000, public, immutable",
     "Pragma: public"
   ]
+  "/amp.html" = [
+    "Cache-Control: max-age=31536000, public, immutable",
+    "Pragma: public"
+  ]
+  "/amp.js" = [
+    "Cache-Control: max-age=31536000, public, immutable",
+    "Pragma: public"
+  ]
+  "/chart-config.json" = [
+    "Cache-Control: max-age=31536000, public, immutable",
+    "Pragma: public"
+  ]
