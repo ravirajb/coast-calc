@@ -333,9 +333,13 @@ if (typeof Chart === 'undefined') {
                 datasets: [{
                     label: 'Portfolio Growth',
                     data: data,
-                    borderColor: '#3498db',
+                    borderColor: '#1d4ed8',
                     tension: 0.1,
-                    fill: false
+                    fill: true,
+                    backgroundColor: 'rgba(29, 78, 216, 0.1)',
+                    borderWidth: 2,
+                    pointRadius: 4,
+                    pointHoverRadius: 6
                 }]
             },
             options: {
@@ -347,13 +351,39 @@ if (typeof Chart === 'undefined') {
                         ticks: {
                             callback: function(value) {
                                 return formatCurrency(value, config);
+                            },
+                            font: {
+                                size: 12,
+                                weight: '500'
+                            }
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            font: {
+                                size: 12,
+                                weight: '500'
                             }
                         }
                     }
                 },
                 plugins: {
                     legend: {
-                        position: 'top'
+                        position: 'top',
+                        labels: {
+                            font: {
+                                size: 12,
+                                weight: '500'
+                            }
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Portfolio Growth Over Time',
+                        font: {
+                            size: 16,
+                            weight: '600'
+                        }
                     },
                     tooltip: {
                         callbacks: {
