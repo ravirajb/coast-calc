@@ -13,3 +13,6 @@ type = "static"
   name = "coast-fire-calculator-production"
   workers_dev = false
   route = "your-domain.com/*"
+
+[build.upload]
+  main = "static/index.html"
