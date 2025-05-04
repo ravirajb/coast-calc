@@ -16,3 +16,4 @@ type = "static"
 
 [build.upload]
   main = "static/index.html"
+
